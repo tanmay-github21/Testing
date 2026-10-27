@@ -3,11 +3,9 @@ import accountCreator from 'c/myAsyncAccountCreate';
 import {createRecord} from 'lightning/uiRecordApi';
 import mockCreateRecord from './data/data.json'; 
 //mock the createRecord wire adapter 
-jest.mock(
-    'lightning/uiRecordApi', ()=>{
-        return {createRecord:jestfn()};
-    }, {virtual:true} //end of inside mock loop1
-);//end of the jest outter mock
+jest.mock('lightning/uiRecordApi',()=>{
+    return{createRecord:jest.fn()};
+},{virtual:true});
 
 //describe block creates testSuites
 describe('c-my-async-account-creator',()=>{
