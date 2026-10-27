@@ -33,5 +33,16 @@ describe('c-my-async-account-creator',()=>{
             apiName:'Account', fields:{name:'Acme Corp'}
         });
     }); //end of the it block
-    
+    //command for it(){}
+    it('displays error toast when record creation fails', async ()=>{
+        createRecord.mockRejectedValue({body:{message:'Missing required fields'}});
+        const element=createElement('c-my-async-account-create', {is:accountCreator});
+        document.body.appendChild(element);
+        const handler=jest.fn();
+        element.addEventListener('lightning__showtoast',handler);
+        const buttonEl=element.shadowRoot.querySelector('lightning-button');
+        buttonEl.click();
+        await Promise.resolve();
+        expect(handler).toHaveBeenCalled();
+    }/*end of it block for -ve test case*/);
 }); //end of describe function block 
