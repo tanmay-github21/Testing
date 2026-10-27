@@ -1,0 +1,9 @@
+{
+  "id": "001XXXXXXXXXXXXAAA",
+  "apiName": "Account",
+  "fields": {
+    "Name": {
+      "value": "Acme Corp"
+    }
+  }
+}
