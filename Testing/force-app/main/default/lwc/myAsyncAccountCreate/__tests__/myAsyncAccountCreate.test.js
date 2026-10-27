@@ -29,9 +29,9 @@ describe('c-my-async-account-creator',()=>{
         await Promise.resolve();
 
         expect(createRecord).toHaveBeenCalledTimes(1);
-        expect(createRecord.toHaveBeenCalledWith({
-            apiName:'Account',
-            fields:{Name:'Acme Corp'}
-        }/*tohaveBeenCalledWIthEnd*/));
-    }/*end of the it block*/);
+        expect(createRecord).toHaveBeenCalledWith({
+            apiName:'Account', fields:{name:'Acme Corp'}
+        });
+    }); //end of the it block
+    
 }); //end of describe function block 
